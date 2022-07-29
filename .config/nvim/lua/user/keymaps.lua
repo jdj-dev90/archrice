@@ -74,3 +74,7 @@ keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 -- Harpoon --
 keymap("n", "<leader>d", "<cmd>lua require'harpoon.ui'.toggle_quick_menu()<cr>", opts)
 keymap("n", "<leader>a", "<cmd>lua require'harpoon.mark'.add_file()<cr>", opts)
+
+
+-- CenterPad --
+keymap('n', '<leader>z', "<cmd>lua require'centerpad'.toggle{ leftpad = 25, rightpad = 25 }<cr>", { silent = true, noremap = true })
