@@ -75,6 +75,8 @@ keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>d", "<cmd>lua require'harpoon.ui'.toggle_quick_menu()<cr>", opts)
 keymap("n", "<leader>a", "<cmd>lua require'harpoon.mark'.add_file()<cr>", opts)
 
+-- ZenMode --
+keymap('n', '<leader>z', "<cmd>:TZAtaraxis<cr>", opts)
 
--- CenterPad --
-keymap('n', '<leader>z', "<cmd>lua require'centerpad'.toggle{ leftpad = 25, rightpad = 25 }<cr>", { silent = true, noremap = true })
+-- Cheatsheet --
+keymap("n", "<leader>?", ":Cheatsheet<CR>", opts)

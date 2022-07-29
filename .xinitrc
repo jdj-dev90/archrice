@@ -60,6 +60,10 @@ xset r rate 200 35 &
 
 stalonetray --dockapp-mode simple &
 
+# Clipmenu
+systemctl --user import-environment DISPLAY  &
+clipmenud &
+
 # Display Resolution
 #xrandr --mode 1920x1080 &
 
