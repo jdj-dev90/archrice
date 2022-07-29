@@ -69,6 +69,7 @@ return packer.startup(function(use)
     }
   }
   use "Pocco81/TrueZen.nvim"
+  use "ggandor/leap.nvim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
