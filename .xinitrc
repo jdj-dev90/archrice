@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -48,15 +32,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-
-
 # Keyboard Layout
 setxkbmap en_AU &
 
 setxkbmap -option caps:escape &
 
 xset r rate 200 35 &
-
 
 stalonetray --dockapp-mode simple &
 
@@ -75,7 +56,8 @@ slstatus &
 
 rwp=$(find ~/.wallpapers/ -type f | shuf -n 1) 
 
-exec wal -i ${rwp} &
+/* exec wal -i ${rwp} & */
+
 # Wallpaper
 exec feh --bg-scale ${rwp} &
 

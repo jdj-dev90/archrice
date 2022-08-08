@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/jordan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gruvbox-material.nvim"] = {
+    loaded = true,
+    path = "/home/jordan/.local/share/nvim/site/pack/packer/start/gruvbox-material.nvim",
+    url = "https://github.com/wittyjudge/gruvbox-material.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/jordan/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -258,11 +263,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jordan/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
-  },
-  ["wal.vim"] = {
-    loaded = true,
-    path = "/home/jordan/.local/share/nvim/site/pack/packer/start/wal.vim",
-    url = "https://github.com/dylanaraps/wal.vim"
   },
   ["which-key.nvim"] = {
     loaded = true,

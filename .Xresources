@@ -11,7 +11,7 @@
 ! st.borderpx: 20
 !
 ! !- 0.1 to 0.9 = transparency
-! st.alpha: 0.2
+! st.alpha: 0.7
 !
 ! *background: #181f21
 ! *foreground: #dadada
