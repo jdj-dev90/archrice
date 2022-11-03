@@ -70,13 +70,28 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>f",
   "<cmd>lua require'telescope.builtin'.find_files(require(('telescope.themes').get_dropdown()))<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<c-e>", "<cmd>Telescope grep_string<cr>", opts)
 
 -- Harpoon --
 keymap("n", "<leader>d", "<cmd>lua require'harpoon.ui'.toggle_quick_menu()<cr>", opts)
 keymap("n", "<leader>a", "<cmd>lua require'harpoon.mark'.add_file()<cr>", opts)
+keymap("n", "<leader>n", "<cmd>lua require'harpoon.ui'.nav_next()<cr>", opts)
+keymap("n", "<leader>N", "<cmd>lua require'harpoon.ui'.nav_prev()<cr>", opts)
+keymap("n", "<leader>1", "<cmd>lua require'harpoon.ui'.nav_file(1)<cr>", opts)
+keymap("n", "<leader>2", "<cmd>lua require'harpoon.ui'.nav_file(2)<cr>", opts)
+keymap("n", "<leader>3", "<cmd>lua require'harpoon.ui'.nav_file(3)<cr>", opts)
+keymap("n", "<leader>4", "<cmd>lua require'harpoon.ui'.nav_file(4)<cr>", opts)
 
 -- ZenMode --
 keymap('n', '<leader>z', "<cmd>:TZAtaraxis<cr>", opts)
 
 -- Cheatsheet --
 keymap("n", "<leader>?", ":Cheatsheet<CR>", opts)
+
+-- Trouble --
+keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
+keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
+keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
+keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
+keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
+keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)

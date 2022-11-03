@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
+  use "yamatsum/nvim-cursorline"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -63,14 +64,18 @@ return packer.startup(function(use)
     'sudormrfbin/cheatsheet.nvim',
 
     requires = {
-      {'nvim-telescope/telescope.nvim'},
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
+      { 'nvim-telescope/telescope.nvim' },
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
     }
   }
-  use "Pocco81/TrueZen.nvim"
-  use "ggandor/leap.nvim"
 
+  use "ggandor/leap.nvim"
+  use { 'kevinhwang91/nvim-bqf' }
+  use { 'junegunn/fzf', run = function()
+    vim.fn['fzf#install']()
+  end
+  }
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "martinsione/darkplus.nvim"
@@ -90,10 +95,21 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "neovim/nvim-lspconfig" -- enable LSP
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -104,8 +120,10 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "p00f/nvim-ts-rainbow" 
+  use "p00f/nvim-ts-rainbow"
+
   -- Git
   use "lewis6991/gitsigns.nvim"
 
