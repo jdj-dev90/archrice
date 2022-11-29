@@ -21,4 +21,7 @@ require "user.alpha"
 require "user.whichkey"
 require "user.leap"
 require "user.cursorline"
+require "user.neo-minimap"
+require "user.nvim-spectre"
 require "user.autocommands"
+--[[ require "user.dbg" ]]

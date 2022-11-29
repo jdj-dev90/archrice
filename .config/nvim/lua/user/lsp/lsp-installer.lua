@@ -26,3 +26,18 @@ lsp_installer.on_server_ready(function(server)
 	server:setup(opts)
 end)
 
+--[[ local status_ok, mason = pcall(require, "mason") ]]
+--[[ if not status_ok then ]]
+--[[   return ]]
+--[[ end ]]
+--[[]]
+--[[ require("mason").setup { ]]
+--[[   ui = { ]]
+--[[     icons = { ]]
+--[[       package_installed = "✓" ]]
+--[[     } ]]
+--[[   } ]]
+--[[ } ]]
+--[[ require("mason-lspconfig").setup { ]]
+--[[   ensure_installed = { "lua-language-server", "typescript-language-server" }, ]]
+--[[ } ]]

@@ -20,7 +20,7 @@ local setup = {
       windows = true, -- default bindings on <c-w>
       nav = true, -- misc bindings to work with windows
       z = true, -- bindings for folds, spelling and others prefixed with z
-     -- g = true, -- bindings for prefixed with g
+      -- g = true, -- bindings for prefixed with g
     },
   },
   -- add operators that will trigger motion and text object completion
@@ -87,7 +87,7 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["cc"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -95,6 +95,11 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+
+  d = {
+    name = "DAP",
+    ct = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+  },
 
   p = {
     name = "Packer",
@@ -169,6 +174,9 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    s = { "<cmd>lua require('spectre').open()<cr>", "Search Word" },
+    w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search Word" },
+    f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Search File" },
   },
 
   t = {

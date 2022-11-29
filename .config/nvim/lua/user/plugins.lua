@@ -45,6 +45,12 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use({
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  })
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
@@ -70,17 +76,46 @@ return packer.startup(function(use)
     }
   }
 
+  --[[ use({ ]]
+  --[[   "folke/noice.nvim", ]]
+  --[[   config = function() ]]
+  --[[     require("noice").setup() ]]
+  --[[   end, ]]
+  --[[   requires = { ]]
+  --[[     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries ]]
+  --[[     "MunifTanjim/nui.nvim", ]]
+  --[[     -- OPTIONAL: ]]
+  --[[     --   `nvim-notify` is only needed, if you want to use the notification view. ]]
+  --[[     --   If not available, we use `mini` as the fallback ]]
+  --[[     "rcarriga/nvim-notify", ]]
+  --[[   } ]]
+  --[[ }) ]]
+
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
+
   use "ggandor/leap.nvim"
   use { 'kevinhwang91/nvim-bqf' }
   use { 'junegunn/fzf', run = function()
     vim.fn['fzf#install']()
   end
   }
+
+  use 'windwp/nvim-spectre'
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "martinsione/darkplus.nvim"
   use 'wittyjudge/gruvbox-material.nvim'
   -- use "dylanaraps/wal.vim"
+  --[[ use { "catppuccin/nvim", as = "catppuccin" } ]]
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -95,10 +130,17 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
+  use { 
+    "jayp0521/mason-null-ls.nvim",
+  }
   use "neovim/nvim-lspconfig" -- enable LSP
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "jose-elias-alvarez/typescript.nvim"
+
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -121,11 +163,24 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use 'nvim-treesitter/nvim-treesitter-context'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "p00f/nvim-ts-rainbow"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+
+  use "ziontee113/neo-minimap"
+
+  -- DAP
+  use 'mfussenegger/nvim-dap'
+use "jayp0521/mason-nvim-dap.nvim"
+  use 'theHamsta/nvim-dap-virtual-text'
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  use { 'nvim-telescope/telescope-dap.nvim' }
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
