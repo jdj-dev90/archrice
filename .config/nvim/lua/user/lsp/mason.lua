@@ -1,10 +1,10 @@
 require("mason").setup {
-ui = {
-icons = {
-package_installed = "✓"
-}
-}
+  ui = {
+    icons = {
+      package_installed = "✓"
+    }
+  }
 }
 require("mason-lspconfig").setup {
-ensure_installed = { "sumneko_lua", "tsserver" },
+  ensure_installed = { "sumneko_lua", "tsserver" },
 }

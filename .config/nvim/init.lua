@@ -24,4 +24,4 @@ require "user.cursorline"
 require "user.neo-minimap"
 require "user.nvim-spectre"
 require "user.autocommands"
---[[ require "user.dbg" ]]
+require "user.dbg"
