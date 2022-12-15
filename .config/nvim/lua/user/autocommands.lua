@@ -33,6 +33,12 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePost * :silent !compiler %
   augroup END
+
+  augroup _set_line_number_on_mode_switch
+    autocmd!
+    autocmd InsertEnter * :set norelativenumber
+    autocmd InsertLeave * :set relativenumber
+  augroup END
 ]]
 
 -- Autoformat
