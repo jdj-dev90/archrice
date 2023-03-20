@@ -138,13 +138,21 @@ return packer.startup(function(use)
 	-- use "dylanaraps/wal.vim"
 	--[[ use { "catppuccin/nvim", as = "catppuccin" } ]]
 
-	-- cmp plugins
+	-- Completion framework:
 	use "hrsh7th/nvim-cmp" -- The completion plugin
-	use "hrsh7th/cmp-buffer" -- buffer completions
+
+	-- LSP completion source:
+	use 'hrsh7th/cmp-nvim-lsp'
+
+	-- Useful completion sources:
+	use 'hrsh7th/cmp-nvim-lua'
+	use 'hrsh7th/cmp-nvim-lsp-signature-help'
+	use 'hrsh7th/cmp-vsnip'
 	use "hrsh7th/cmp-path" -- path completions
+	use "hrsh7th/cmp-buffer" -- buffer completions
 	use "hrsh7th/cmp-cmdline" -- cmdline completions
+	use 'hrsh7th/vim-vsnip'
 	use "saadparwaiz1/cmp_luasnip" -- snippet completions
-	use "hrsh7th/cmp-nvim-lsp"
 
 	-- snippets
 	use "L3MON4D3/LuaSnip" --snippet engine
@@ -158,7 +166,9 @@ return packer.startup(function(use)
 	use "neovim/nvim-lspconfig" -- enable LSP
 	use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
 	use "jose-elias-alvarez/typescript.nvim"
+	use "simrat39/rust-tools.nvim"
 
 	use {
 		"folke/trouble.nvim",
@@ -179,7 +189,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		run = function() require("nvim-treesitter.install").update { with_sync = true, prefer_git = true } end,
 	}
 	use 'nvim-treesitter/nvim-treesitter-context'
 	use 'nvim-treesitter/nvim-treesitter-textobjects'
