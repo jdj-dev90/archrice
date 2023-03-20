@@ -40,14 +40,15 @@ vim.cmd [[
     autocmd InsertLeave * :set relativenumber
   augroup END
 
-	augroup LspFormatting
-			autocmd! * <buffer>
-			autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-	augroup END
 ]]
 
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
+	--[[ augroup _lsp ]]
+	--[[ 	autocmd! ]]
+	--[[ 	autocmd BufWritePre * lua vim.lsp.buf.formatting() ]]
+	--[[ augroup end ]]
+
+	--[[ augroup LspFormatting ]]
+	--[[ 	autocmd! * <buffer> ]]
+	--[[ 	autocmd BufWritePre <buffer> lua vim.lsp.buf.format() ]]
+	--[[ augroup END ]]
+
