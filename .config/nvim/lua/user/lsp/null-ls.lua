@@ -14,7 +14,7 @@ null_ls.setup(
 	sources = {
 		formatting.prettier,
 		-- formatting.black.with({ extra_args = { "--fast" } }),
-		diagnostics.eslint,
+		diagnostics.eslint_d,
     -- diagnostics.flake8
 
     require("typescript.extensions.null-ls.code-actions"),

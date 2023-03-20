@@ -10,7 +10,8 @@ require ('mason-null-ls').setup({
 })
 
 require("lspconfig").tsserver.setup {}
-require("lspconfig").sumneko_lua.setup {
+
+require("lspconfig").lua_ls.setup {
 	settings = {
 		Lua = {
 			diagnostics = {
