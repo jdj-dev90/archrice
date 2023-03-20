@@ -9,13 +9,13 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup(
-	{
-		debug = false,
-		sources = {
-			formatting.prettier,
-			-- formatting.black.with({ extra_args = { "--fast" } }),
-			diagnostics.eslint,
-			-- diagnostics.flake8
+  {
+	debug = false,
+	sources = {
+		formatting.prettier,
+		-- formatting.black.with({ extra_args = { "--fast" } }),
+		diagnostics.eslint_d,
+    -- diagnostics.flake8
 
 			require("typescript.extensions.null-ls.code-actions"),
 		},
