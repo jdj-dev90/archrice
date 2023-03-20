@@ -39,6 +39,11 @@ vim.cmd [[
     autocmd InsertEnter * :set norelativenumber
     autocmd InsertLeave * :set relativenumber
   augroup END
+
+	augroup LspFormatting
+			autocmd! * <buffer>
+			autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+	augroup END
 ]]
 
 -- Autoformat

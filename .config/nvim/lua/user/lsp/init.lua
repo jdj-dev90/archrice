@@ -1,15 +1,21 @@
 local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then
-  return
+	return
 end
+
+
 
 require "user.lsp.mason"
 require "user.lsp.null-ls"
-require ('mason-null-ls').setup({
-    ensure_installed = {'stylua', 'prettier', }
+require "user.lsp.rust-tools"
+
+require('mason-null-ls').setup({
+	ensure_installed = { 'stylua', 'prettier' }
 })
 
 require("lspconfig").tsserver.setup {}
+
+
 require("lspconfig").sumneko_lua.setup {
 	settings = {
 		Lua = {
@@ -26,4 +32,3 @@ require("lspconfig").sumneko_lua.setup {
 	},
 }
 --[[ require "user.lsp.typescript" ]]
-

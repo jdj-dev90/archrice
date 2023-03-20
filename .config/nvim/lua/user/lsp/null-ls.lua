@@ -9,26 +9,15 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup(
-  {
-	debug = false,
-	sources = {
-		formatting.prettier,
-		-- formatting.black.with({ extra_args = { "--fast" } }),
-		diagnostics.eslint,
-    -- diagnostics.flake8
+	{
+		debug = false,
+		sources = {
+			formatting.prettier,
+			-- formatting.black.with({ extra_args = { "--fast" } }),
+			diagnostics.eslint,
+			-- diagnostics.flake8
 
-    require("typescript.extensions.null-ls.code-actions"),
-	},
-     -- you can reuse a shared lspconfig on_attach callback here
-    on_attach = function(client)
-        --[[ if client.server_capabilities.document_formatting then ]]
-            vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-            augroup END
-            ]])
-        --[[ end ]]
-    end,
-}
+			require("typescript.extensions.null-ls.code-actions"),
+		},
+	}
 )
