@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
 	-- My plugins here
 	use "wbthomason/packer.nvim" -- Have packer manage itself
-	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+	use "nvim-lua/popup.nvim"   -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	use({
@@ -67,50 +67,6 @@ return packer.startup(function(use)
 	use "folke/which-key.nvim"
 	use "ThePrimeagen/harpoon"
 
-	use {
-		'sudormrfbin/cheatsheet.nvim',
-
-		requires = {
-			{ 'nvim-telescope/telescope.nvim' },
-			{ 'nvim-lua/popup.nvim' },
-			{ 'nvim-lua/plenary.nvim' },
-		}
-	}
-
-	--[[ use({ ]]
-	--[[ 	"folke/noice.nvim", ]]
-	--[[ 	config = function() ]]
-	--[[ 		require("noice").setup( ]]
-	--[[ 			{ ]]
-	--[[ 				lsp = { ]]
-	--[[ 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter** ]]
-	--[[ 					override = { ]]
-	--[[ 						["vim.lsp.util.convert_input_to_markdown_lines"] = true, ]]
-	--[[ 						["vim.lsp.util.stylize_markdown"] = true, ]]
-	--[[ 						["cmp.entry.get_documentation"] = true, ]]
-	--[[ 					}, ]]
-	--[[ 				}, ]]
-	--[[ 				-- you can enable a preset for easier configuration ]]
-	--[[ 				presets = { ]]
-	--[[ 					bottom_search = true, -- use a classic bottom cmdline for search ]]
-	--[[ 					command_palette = true, -- position the cmdline and popupmenu together ]]
-	--[[ 					long_message_to_split = true, -- long messages will be sent to a split ]]
-	--[[ 					inc_rename = false, -- enables an input dialog for inc-rename.nvim ]]
-	--[[ 					lsp_doc_border = false, -- add a border to hover docs and signature help ]]
-	--[[ 				}, ]]
-	--[[ 			} ]]
-	--[[ 		) ]]
-	--[[ 	end, ]]
-	--[[ 	requires = { ]]
-	--[[ 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries ]]
-	--[[ 		"MunifTanjim/nui.nvim", ]]
-	--[[ 		-- OPTIONAL: ]]
-	--[[ 		--   `nvim-notify` is only needed, if you want to use the notification view. ]]
-	--[[ 		--   If not available, we use `mini` as the fallback ]]
-	--[[ 		"rcarriga/nvim-notify", ]]
-	--[[ 	} ]]
-	--[[ }) ]]
-
 	use({
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -121,6 +77,8 @@ return packer.startup(function(use)
 		end
 	})
 
+	use "github/copilot.vim"
+
 	--[[ use "ggandor/leap.nvim" ]]
 	use { 'kevinhwang91/nvim-bqf' }
 	use { 'junegunn/fzf', run = function()
@@ -128,15 +86,8 @@ return packer.startup(function(use)
 	end
 	}
 
-	use 'windwp/nvim-spectre'
-
 	-- Colorschemes
-	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-	-- use "martinsione/darkplus.nvim"
-	--[[ use 'wittyjudge/gruvbox-material.nvim' ]]
 	use "rebelot/kanagawa.nvim"
-	-- use "dylanaraps/wal.vim"
-	--[[ use { "catppuccin/nvim", as = "catppuccin" } ]]
 
 	-- Completion framework:
 	use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -160,12 +111,13 @@ return packer.startup(function(use)
 
 	-- LSP
 	--[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
+	use "neovim/nvim-lspconfig" -- enable LSP
 	use { "williamboman/mason.nvim" }
 	use { "williamboman/mason-lspconfig.nvim" }
 	use { "jayp0521/mason-null-ls.nvim" }
-	use "neovim/nvim-lspconfig" -- enable LSP
 	use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
 
 	use "jose-elias-alvarez/typescript.nvim"
 	use "simrat39/rust-tools.nvim"
@@ -200,23 +152,12 @@ return packer.startup(function(use)
 	use "lewis6991/gitsigns.nvim"
 
 
-	use "ziontee113/neo-minimap"
-
 	-- DAP
 	use 'mfussenegger/nvim-dap'
 	use "jayp0521/mason-nvim-dap.nvim"
 	use 'theHamsta/nvim-dap-virtual-text'
 	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 	use { 'nvim-telescope/telescope-dap.nvim' }
-
-	use {
-		"ThePrimeagen/refactoring.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-treesitter/nvim-treesitter" }
-		}
-	}
-
 
 
 	-- Automatically set up your configuration after cloning packer.nvim

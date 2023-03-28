@@ -100,14 +100,13 @@ keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
 
 -- LSP --
-keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
---[[ keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) ]]
-keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", opts)
+--[[ keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) ]]
+--[[ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) ]]
+--[[ keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) ]]
+--[[ keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) ]]
+--[[ keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) ]]
+--[[ keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts) ]]
+--[[ keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", opts) ]]
 
 -- DAP --
 keymap("n", "<leader>dui", "<cmd>lua require'dapui'.toggle()<CR>", opts)
